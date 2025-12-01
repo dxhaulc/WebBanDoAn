@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks Storp</title>
+    <link rel="stylesheet" href="assets/fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+
+            <div class="header__navbar-icon">
+                <a href="#"></a>
+            </div>
+    
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="index.html">Menu</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="voucher.html">Voucher</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="employee.html">Nhân viên</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="#">Lịch sử hóa đơn</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="customer.html">Khách hàng</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="employeeaccount.html">Tài khoản NV</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="reportrevenue.html">Thống kê doanh thu</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="chamcong.html">Chấm công</a>
+                </li>
+            </ul>
+    
+            <ul class="header__user">
+                <li class="header__user-login">
+                    <button class="btn header__user-login__btn btn-active">Đăng nhập</button>
+                </li>
+            </ul>
+            <div class="header__navbar-item header__navbar-user">
+
+            </div>
+        </header>
+
+    </div>
+
+
+    <div class="manager-app">
+        <div class="menu-form__container manager-form__container">
+            <div class="menu-form__header">
+                <h3 class="menu-form__heading">Hóa đơn</h3>
+            </div>
+
+            <!-- ----------------- -->
+            <!-- ---- -->
+            <div class="search-container" >
+                <input type="text" id="search-idnv" placeholder="Tìm kiếm theo id nhân viên lập...">
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+                <select id="search-price">
+                    <option value="">Tổng tiền</option>
+                    <option value="asc">Tăng dần</option>
+                    <option value="desc">Giảm dần</option>
+                </select>
+                <button id="btn-search">Tìm kiếm</button>
+            </div>
+            <!-- -------------------- -->
+            <div class="menu-form__body manager-form__body">
+                <table class="menu-form__list menu-form__list-manage"></table>
+    
+                <!-- Phân trang -->
+                <ul class="pagination home-product__pagination">
+                    <li class="pagination-item">
+                        <a class="pagination-item__link btn_prev" href="javascript:void(0)" id="btn_prev-manage">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <!-- <li class="pagination-item pagination-item--active">
+                        <a class="pagination-item__link page" href="#" id="page-manage"></a>
+                    </li> -->
+                    <div id="pagination-pages"></div>
+                    <li class="pagination-item">
+                        <a class="pagination-item__link btn_next" href="javascript:void(0)" id="btn_next-manage">
+                            <i class="pagination-item__icon fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Form thêm/sửa nhân viên -->
+        <!-- <div id="manage-form" class="manage-form" style="display: none;">
+            <h3 id="form-title">Thêm Nhân Viên</h3>
+            <input type="text" id="manage-idhd" placeholder="Mã HD" />
+            <input type="date" id="manage-thoidiemlap" placeholder="Thời điểm lập" />
+            <input type="text" id="manage-idnv" placeholder="IDNV" />
+            <input type="text" id="manage-tongtien" placeholder="Tổng tiền" />
+            <button id="save-manage-btn">Lưu</button>
+            <button id="cancel-btn">Hủy</button>
+        </div> -->
+
+        <div class="modal modal-login">
+            <div class="modal_overlay"></div>
+    
+            <div class="modal__body">
+    
+                <!-- Login form  -->
+                <div class="auth-form">
+                    <div class="auth-form__container">
+                        <div class="auth-form__header">
+                            <h3 class="auth-form__heading">Đăng nhập</h3>
+                            
+                        </div>
+    
+                        <div class="auth-form__form">
+                            <div class="auth-form__group">
+                                <input type="text" class="auth-form__input" id="input-username" placeholder="Tên đăng nhập">
+                            </div>
+                            <div class="auth-form__group">
+                                <input type="password" class="auth-form__input" id="input-password" placeholder="Mật khẩu">
+                            </div>
+                        </div>
+    
+                        <div class="auth-form__control">
+                            <button class="btn btn--normal auth-form__control-back ">TRỞ LẠI</button>
+                            <button class="btn btn--primary" id="btn-login">ĐĂNG NHẬP</button>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="modal modal-bill">
+        <div class="modal_overlay"></div>
+
+        <div class="modal__body">
+
+            <!-- Login form  -->
+            <div class="auth-form auth-form-bill">
+                <div class="auth-form__container">
+
+                    <div class="auth-form__header">
+                        <div class="auth-form__icon"></div>
+                        <div class="auth-form__icon-label">Drinks Storp</div>
+                    </div>
+                    <h3 class="auth-form__heading">Hóa đơn thanh toán</h3>
+
+                    <div class="auth-form__body">
+
+                        <div class="auth-form__body-infocreate">
+                            <div class="auth-form__body-label">
+                                <div class="auth-form__body_id-label">ID</div>
+                                <div class="auth-form__body_time-label">Thời gian lập</div>
+                                <div class="auth-form__body_name-label">Nhân viên lập</div>
+        
+                            </div>
+                            
+                            <div class="auth-form__body-value">
+                                <div class="auth-form__body_id-value">HD30</div>
+                                <div class="auth-form__body_time-value">....</div>
+                                <div class="auth-form__body_name-value">Đào Xuân Hậu</div>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__body-infodrink">
+                            <table class="bill__list-drink">
+
+                            </table>
+                        </div>
+
+                        <div class="auth-form__body-infototalmoney">
+                            <div class="bill__list-labeltotalmoney">Tổng tiền</div>
+                            <div class="bill__list-totalmoney"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <div class="bill-detail-modal" style="display: none;">
+        <div class="bill-detail-container">
+            <h2>Chi tiết hóa đơn</h2>
+            <table class="bill-detail-body">
+                <tr>
+                    <th>ID đồ uống</th>
+                    <th>Tên đồ uống</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </table>
+            <p class="bill-detail-total">Tổng tiền: 0đ</p>
+            <button class="bill-detail-close">Đóng</button>
+        </div>
+    </div> -->
+
+
+    <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+    <script src="../js/billhistory.js"></script>
+    <script src="../js/login.js"></script>
+
+    <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+    
+
+   
+
+</body>
+</html>

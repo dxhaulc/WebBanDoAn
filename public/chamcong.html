@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks Storp</title>
+    <link rel="stylesheet" href="assets/fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+
+            <div class="header__navbar-icon">
+                <a href="#"></a>
+            </div>
+    
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="index.html">Menu</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="voucher.html">Voucher</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="employee.html">Nhân viên</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="billhistory.html">Lịch sử hóa đơn</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="customer.html">Khách hàng</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="employeeaccount.html">Tài khoản NV</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="reportrevenue.html">Thống kê doanh thu</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="#">Chấm công</a>
+                </li>
+            </ul>
+    
+            <ul class="header__user">
+                <li class="header__user-login">
+                    <button class="btn header__user-login__btn btn-active">Đăng nhập</button>
+                </li>
+            </ul>
+            <div class="header__navbar-item header__navbar-user">
+
+            </div>
+        </header>
+
+        <div class="manager-app">
+            <div class="menu-form__container manager-form__container">
+                <div class="menu-form__header">
+                    <h3 class="menu-form__heading">Chấm công</h3>
+                </div>
+                <button id="chamcongvao">Chấm công vào</button>
+                <button id="chamcongra">Chấm công ra</button>
+                
+                <!-- Bảng hiển thị thông tin chấm công -->
+                <table id="list-chamcong" border="1" style="width: 100%; margin-top: 20px; text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Loại</th>
+                            <th>Thời gian</th>
+                        </tr>
+                    </thead>
+                    <tbody id="chamcongTableBody">
+                        <!-- Dữ liệu sẽ được thêm vào bằng JavaScript -->
+                    </tbody>
+                </table>
+        
+                <!-- Phân trang -->
+                <div id="pagination" style="text-align: center; margin-top: 20px;">
+                    <!-- Các nút phân trang sẽ hiển thị ở đây -->
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <footer></footer>
+
+
+    <!-- -------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- Modal đăng nhập -->
+    <div class="modal modal-login">
+        <div class="modal_overlay"></div>
+
+        <div class="modal__body">
+
+            <!-- Login form  -->
+            <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" id="input-username" placeholder="Tên đăng nhập">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" id="input-password" placeholder="Mật khẩu">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__control">
+                        <button class="btn btn--normal auth-form__control-back ">TRỞ LẠI</button>
+                        <button class="btn btn--primary" id="btn-login">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------------------------------------------------- -->
+
+    <!-- Modal menu -->
+    <div class="modal modal-menu-drink"> 
+        <div class="modal_overlay"></div>
+
+        <div class="modal__body">
+
+            <!-- Register form -->
+            <div class="menu-form">
+                <div class="menu-form__container">
+                    <div class="menu-form__header">
+                        <h3 class="menu-form__heading">Chấm công</h3>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <div style="min-height: 200px;"></div>
+    </div>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+    <style>
+    button#chamcongra,
+    button#chamcongvao {
+        width: 400px;
+        height: 40px;
+        margin: auto;
+    }
+    button#chamcongvao {
+        background-color: rgb(78, 255, 78);
+    }
+
+    button#chamcongra {
+        background-color: rgb(249, 50, 50);
+    }
+
+
+    #list-chamcong {
+        font-size: 1.6rem;
+    }
+
+    #list-chamcong tr,
+    #list-chamcong th {
+        height: 40px    ;
+    }
+    .pagination-btn {
+    height: 40px;
+    font-weight: 300;
+    color: #939393;
+    background-color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 2rem;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    }
+
+    .pagination-info {
+        font-size: 16px;
+        margin: 5px;
+    }
+    .pagination-btn.active {
+        background-color: #ed5c3f;
+        color: white;
+    }
+    </style>
+
+    <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+    <script src="../js/chamcong.js"></script>
+    <script src="../js/login.js"></script>
+    <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+    
+
+   
+
+</body>
+</html>

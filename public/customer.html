@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks Storp</title>
+    <link rel="stylesheet" href="assets/fonts/fontawesome-free-6.5.1-web/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+
+            <div class="header__navbar-icon">
+                <a href="#"></a>
+            </div>
+    
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="index.html">Menu</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="voucher.html">Voucher</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="employee.html">Nhân viên</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="billhistory.html">Lịch sử hóa đơn</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="#">Khách hàng</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="employeeaccount.html">Tài khoản NV</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="reportrevenue.html">Thống kê doanh thu</a>
+                </li>
+                <li class="header__navbar-item">
+                    <a class="btn header__navbar-item-link" href="chamcong.html">Chấm công</a>
+                </li>
+            </ul>
+    
+            <ul class="header__user">
+                <li class="header__user-login">
+                    <button class="btn header__user-login__btn btn-active">Đăng nhập</button>
+                </li>
+            </ul>
+            <div class="header__navbar-item header__navbar-user">
+
+            </div>
+        </header>
+
+    </div>
+
+
+    <div class="manager-app">
+        <div class="menu-form__container manager-form__container">
+            <div class="menu-form__header">
+                <h3 class="menu-form__heading">Danh sách khách hàng</h3>
+            </div>
+
+            <!-- ---- -->
+            <div class="search-container" >
+                <input type="text" id="search-name" placeholder="Tìm kiếm theo tên ...">
+                <input type="text" id="search-sdt" placeholder="Tìm kiếm theo sdt ...">
+                <select id="search-dtl">
+                    <option value="">DTL</option>
+                    <option value="asc">Tăng dần</option>
+                    <option value="desc">Giảm dần</option>
+                </select>
+                <button id="btn-search">Tìm kiếm</button>
+            </div>
+
+            <div class="menu-form__body manager-form__body">
+                <table class="menu-form__list menu-form__list-manage"></table>
+    
+                <!-- Phân trang -->
+                <ul class="pagination home-product__pagination">
+                    <li class="pagination-item">
+                        <a class="pagination-item__link btn_prev" href="javascript:void(0)" id="btn_prev-manage">
+                            <i class="pagination-item__icon fas fa-angle-left"></i>
+                        </a>
+                    </li>
+                    <!-- <li class="pagination-item pagination-item--active">
+                        <a class="pagination-item__link page" href="#" id="page-manage"></a>
+                    </li> -->
+                    <div id="pagination-pages"></div>
+                    <li class="pagination-item">
+                        <a class="pagination-item__link btn_next" href="javascript:void(0)" id="btn_next-manage">
+                            <i class="pagination-item__icon fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Form thêm/sửa khách hàng -->
+        <div id="manage-form" class="manage-form" style="display: none;">
+            <h3 id="form-title">Thêm khách hàng</h3>
+            <input type="text" id="manage-name" placeholder="Họ tên" />
+            <input type="text" id="manage-sdt" placeholder="SDT" />
+            <input type="text" id="manage-dtl" placeholder="Điểm tích lũy" />
+
+            <button id="save-manage-btn">Lưu</button>
+            <button id="cancel-btn">Hủy</button>
+        </div>
+    </div>
+
+    <div class="modal modal-login">
+        <div class="modal_overlay"></div>
+
+        <div class="modal__body">
+
+            <!-- Login form  -->
+            <div class="auth-form">
+                <div class="auth-form__container">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng nhập</h3>
+                        
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="text" class="auth-form__input" id="input-username" placeholder="Tên đăng nhập">
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" id="input-password" placeholder="Mật khẩu">
+                        </div>
+                    </div>
+
+                    <div class="auth-form__control">
+                        <button class="btn btn--normal auth-form__control-back ">TRỞ LẠI</button>
+                        <button class="btn btn--primary" id="btn-login">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+
+    <script src="../js/customer.js"></script>
+    <script src="../js/login.js"></script>
+
+    <!-- ---------------------------------------------------------------------------------------------------------------------- -->
+    
+
+   
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks Storp Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #d8b979, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+        .login-img-icon {
+            border-radius: 50%;
+        }
+
+        .login-container h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .login-container img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-button {
+            width: 100%;
+            background: #ff6f61;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-button:hover {
+            background: #e65c54;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .forgot-password a {
+            color: #ff6f61;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img class="login-img-icon" src="../assets/img/logo.png" alt="Drink Store Logo">
+        <h1>Đăng nhập</h1>
+        <form>
+            <div class="input-group">
+                <label for="input-username">Tên đăng nhập</label>
+                <input type="text" id="input-username" name="accountname" placeholder="Nhập tên đăng nhập của bạn" required>
+            </div>
+            <div class="input-group">
+                <label for="input-password">Mật khẩu</label>
+                <input type="password" id="input-password" name="password" placeholder="Nhập mật khẩu của bạn" required>
+
+            </div>
+            <button type="submit" class="login-button" id="btn-login">Đăng nhập</button>
+            <!-- <div class="forgot-password">
+                <a href="#">Forgot your password?</a>
+            </div> -->
+        </form>
+    </div>
+
+    <script>
+        var btnLogin = document.querySelector('#btn-login');
+        var username = document.querySelector('#input-username');
+        var password = document.querySelector('#input-password');
+
+        btnLogin.addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            const data = {
+                TenDangNhap: username.value.trim(),
+                MatKhau: password.value.trim()
+            };
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert("Đăng nhập thành công"); 
+
+                    localStorage.setItem('loggedInUser', JSON.stringify(result.nhanVien));
+                    localStorage.setItem('userRole', result.role);
+                    window.location.href = '/index.html';
+
+                } else {
+                    alert("Tên đăng nhập hoặc mật khẩu không hợp lệ"); // Hiển thị thông báo lỗi
+                }
+            })
+            .catch(error => {
+                console.error("Error during login:", error);
+                alert("Có lỗi xảy ra trong quá trình đăng nhập.");
+            });
+        });
+    </script>
+</body>
+</html>
